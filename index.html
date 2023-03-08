@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            text-align: center;
+        }        
+        .txt2{
+            padding: 10px;
+        }
+        h1{
+            color: brown;
+        }
+        .btn{
+            width: 190px;
+            padding: 10px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <img src="https://thumbs.dreamstime.com/b/love-emoji-smiling-emoticon-three-hearts-d-stylized-vector-icon-227315796.jpg" alt="" height="300px">
+
+    <h1 id="result">Calculate Your Love</h1>
+    <br><br>
+    <input type="text" placeholder="Enter your Name" id="txt1">
+    <br><br>
+    <input type="text" placeholder="Enter your Love Name" id="txt2">
+    <button onclick="love()">Calculate Love</button>
+
+    <script>
+        
+
+        function love(){
+            let txt1=document.getElementById("txt1").value;
+            let txt2=document.getElementById("txt2").value;
+            if(txt1 && txt2){
+                let total=Math.floor(Math.random()*100);
+                
+                str=(txt1+txt2).replace(/\s/g,"");
+                str=str.toLowerCase();
+                if(localStorage.getItem(str)){
+                    total=localStorage.getItem(str);
+                }
+                else{
+                    localStorage.setItem(str,total);
+                }
+                document.getElementById("result").innerText=total;
+                console.log(str);
+            }
+            else{
+                alert("Please enter valid Name");
+            }
+        }
+
+    </script>
+</body>
+</html>
